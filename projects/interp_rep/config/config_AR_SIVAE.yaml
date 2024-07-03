@@ -1,0 +1,93 @@
+name: AR_SIVAE
+target_size: &id001 !!python/tuple
+- 128
+- 128
+checkpoint_path: &id003 ./weights/
+binary_label: true
+attributes_idx: &id002 !!python/tuple
+- LVEDV
+- RVEDV
+- MYOEDV
+- LVESV
+- RVESV
+- MYOESV
+rescale: 1
+t_batch_size: 128
+nc: 2
+experiment:
+  name: interp_rep
+  task: train
+  weights: null
+device: gpu
+configurator:
+  module_name: core.Configurator
+  class_name: DLConfigurator
+  params: null
+model:
+  module_name: model_zoo.soft_intro_vae_daniel
+  class_name: SoftIntroVAE
+  params:
+    nc: 2
+    zdim: 128
+    channels:
+    - 64
+    - 128
+    - 256
+    - 512
+    - 512
+    image_size: 128
+    conditional: false
+trainer:
+  module_name: projects.interp_rep.SIVAETrainer
+  class_name: PTrainer
+  params:
+    input_size: *id001
+    checkpoint_path: *id003
+    nr_epochs: 1
+    loss:
+      module_name: optim.losses.ln_losses
+      class_name: L2
+      params: null
+    patience: 100
+    reg_loss: 0.05
+    beta_neg: 1024
+    beta_rec: 0.8
+    loss_type: pl
+    annealing: 100
+    annealing_mse: 0.1
+    beta_kl: 1
+    nc: 2
+    optimizer_params:
+      lr: 0.0002
+  data_loader:
+    module_name: data.cardiac_loader_2D
+    class_name: CardiacLoader
+    params:
+      args:
+        patch_path: /lustre/groups/shared/ukbb-87065/dataset/cardiac_mri_nifti/preprocessing/dataset/healthy_5k/healthy_all_moment.h5
+        attributes_path: /lustre/groups/shared/ukbb-87065/dataset/cardiac_mri_nifti/preprocessing/dataset/healthy_5k/
+        attributes_idx: *id002
+        win_size: *id001
+        rescale: 1
+        binary_label: true
+        moment: all
+        batch_size: 128
+downstream_tasks:
+  UKB:
+    module_name: projects.interp_rep.DownstreamEvaluator
+    class_name: PDownstreamEvaluator
+    checkpoint_path: *id003
+    data_loader:
+      module_name: data.cardiac_loader_2D
+      class_name: CardiacLoader
+      params:
+        args:
+          patch_path: /lustre/groups/shared/ukbb-87065/dataset/cardiac_mri_nifti/preprocessing/dataset/healthy_5k/healthy_all_moment.h5
+          attributes_path: /lustre/groups/shared/ukbb-87065/dataset/cardiac_mri_nifti/preprocessing/dataset/healthy_5k/
+          attributes_idx: *id002
+          win_size: *id001
+          rescale: 1
+          binary_label: true
+          moment: all
+          batch_size: 128
+          
