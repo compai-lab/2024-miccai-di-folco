@@ -8,8 +8,9 @@ Accepted at [MICCAI 2024](https://conferences.miccai.org/2024/en/)
 **Abstract:** *Interpretability is essential in medical imaging to ensure that clinicians can comprehend and trust artificial intelligence models. Several approaches have been recently considered to encode attributes in the latent space to enhance its interpretability. Notably, attribute regularization aims to encode a set of attributes along the dimensions of a latent representation. However, this approach is based on Variational AutoEncoder and suffers from blurry reconstruction. In this paper, we propose an Attributed-regularized Soft Introspective Variational Autoencoder that combines attribute regularization of the latent space within the framework of an adversarially trained variational autoencoder. We demonstrate on short-axis cardiac Magnetic Resonance images of the UK Biobank the ability of the proposed method to address blurry reconstruction issues of variational autoencoder methods while preserving the latent space interpretability.*
 
 <div style="text-align:center;">
-  <img src="./framework.jpg" alt="Illustration of the framework" style="width:50%; height:auto;">
+  <img src="./overview.jpg" alt="Illustration of the framework" style="width:50%; height:auto;">
 </div>
+
 
 ## Citation
 If you use this code, please cite our paper:
@@ -46,9 +47,5 @@ Overview Deep Learning Framework
 After applying all of the preprocessing steps, you can run:
 
 ```
-python core/Main.py --config_path projects/interp_rep/config_SIVAE.yaml
+python core/Main.py --config_path projects/interp_rep/config/config_***.yaml
 ```
-
-
-
-
