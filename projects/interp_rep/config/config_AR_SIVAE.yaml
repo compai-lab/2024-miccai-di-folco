@@ -64,8 +64,8 @@ trainer:
     class_name: CardiacLoader
     params:
       args:
-        patch_path: /lustre/groups/shared/ukbb-87065/dataset/cardiac_mri_nifti/preprocessing/dataset/healthy_5k/healthy_all_moment.h5
-        attributes_path: /lustre/groups/shared/ukbb-87065/dataset/cardiac_mri_nifti/preprocessing/dataset/healthy_5k/
+        patch_path: #path to the .h5 file
+        attributes_path: #folder path where your store the list of attributes under full_info.csv
         attributes_idx: *id002
         win_size: *id001
         rescale: 1
@@ -82,8 +82,8 @@ downstream_tasks:
       class_name: CardiacLoader
       params:
         args:
-          patch_path: /lustre/groups/shared/ukbb-87065/dataset/cardiac_mri_nifti/preprocessing/dataset/healthy_5k/healthy_all_moment.h5
-          attributes_path: /lustre/groups/shared/ukbb-87065/dataset/cardiac_mri_nifti/preprocessing/dataset/healthy_5k/
+          patch_path: #path to the .h5 file
+          attributes_path: #folder path where your store the list of attributes under full_info.csv
           attributes_idx: *id002
           win_size: *id001
           rescale: 1

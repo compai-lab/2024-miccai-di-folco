@@ -27,6 +27,8 @@ If you use this code, please cite our paper:
 ## Contents of this repository:
 
 - `projects/interp_rep/data_prepocessing`: notebook to adapt the ACDC dataset to the pipeline and the attributes use to regularize
+🚧🚧 This part is still work in progress 🚧🚧
+
 - `projects/interp_rep/`: training and testing the proposed method AR-SIVAE and the method they compare against. Based on: [IML-CompAI Framework](https://github.com/compai-lab/iml-dl) 
 
 All computations were performed using Python 3.8.18 and PyTorch 1.12.1
