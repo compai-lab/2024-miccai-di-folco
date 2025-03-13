@@ -15,11 +15,13 @@ Accepted at [MICCAI 2024](https://conferences.miccai.org/2024/en/)
 If you use this code, please cite our paper:
 
 ```
-@article{di_folco2024interpretable,
+@inproceedings{di_folco2024interpretable,
   title={Interpretable Representation Learning of Cardiac MRI via Attribute Regularization},
-  author={Di Folco, Maxime and Bercea, Cosmin I and Chan E and Schnabel, Julia A},
-  journal={arXiv preprint arXiv:2406.08282},
-  year={2024}
+  author={Di Folco, Maxime and Bercea, Cosmin I and Chan, Emily and Schnabel, Julia A},
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  pages={492--501},
+  year={2024},
+  organization={Springer}
 }
 ```
 
