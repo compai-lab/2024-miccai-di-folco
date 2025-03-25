@@ -1,6 +1,6 @@
 # Interpretable Representation Learning of Cardiac MRI via Attribute Regularization
 
-**Maxime Di Folco**, Cosimin I. Bercea, Emily Chan, Julia A. Schnabel
+**Maxime Di Folco**, Cosmin I. Bercea, Emily Chan, Julia A. Schnabel
 
 Accepted at [MICCAI 2024](https://conferences.miccai.org/2024/en/)
 
